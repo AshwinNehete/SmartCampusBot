@@ -1,0 +1,94 @@
+{
+  "faqs": [
+    {
+      "question": "How do I register for classes?",
+      "answer": "You can register for classes through the online student portal. Log in with your student ID and password, navigate to 'Course Registration', select your desired courses, and confirm your enrollment. Registration opens 2 weeks before each semester begins.",
+      "category": "registration",
+      "keywords": ["register", "classes", "courses", "enrollment"]
+    },
+    {
+      "question": "When is the tuition payment deadline?",
+      "answer": "Tuition payments are due by the 15th of each month for the upcoming semester. For Fall semester, payment is due by August 15th, and for Spring semester, by January 15th. Late payments incur a $50 fee.",
+      "category": "financial",
+      "keywords": ["tuition", "payment", "deadline", "fee"]
+    },
+    {
+      "question": "How do I apply for financial aid?",
+      "answer": "To apply for financial aid, complete the FAFSA form online at fafsa.gov. Submit all required documents including tax returns and bank statements. The priority deadline is March 1st for the following academic year.",
+      "category": "financial",
+      "keywords": ["financial aid", "FAFSA", "scholarship", "grants"]
+    },
+    {
+      "question": "What are the library hours?",
+      "answer": "The main library is open Monday-Thursday 7:30 AM - 11:00 PM, Friday 7:30 AM - 6:00 PM, Saturday 10:00 AM - 6:00 PM, and Sunday 12:00 PM - 11:00 PM. Hours may vary during holidays and exam periods.",
+      "category": "facilities",
+      "keywords": ["library", "hours", "open", "schedule"]
+    },
+    {
+      "question": "How do I drop or add a class?",
+      "answer": "You can drop or add classes through the student portal during the add/drop period, which lasts for the first two weeks of each semester. After this period, you'll need to submit a petition form with your advisor's approval.",
+      "category": "registration",
+      "keywords": ["drop", "add", "class", "course", "withdraw"]
+    },
+    {
+      "question": "Where can I get my student ID card?",
+      "answer": "Student ID cards are issued at the Student Services Center in the Main Administration Building, Room 150. Bring a valid photo ID and proof of enrollment. The office is open Monday-Friday, 9:00 AM - 4:00 PM.",
+      "category": "services",
+      "keywords": ["student ID", "card", "identification"]
+    },
+    {
+      "question": "What are the graduation requirements?",
+      "answer": "To graduate, you must complete a minimum of 120 credit hours with a cumulative GPA of 2.0 or higher. You must also complete all major requirements and general education courses. Submit your graduation application by the deadline in your final semester.",
+      "category": "academic",
+      "keywords": ["graduation", "requirements", "credits", "GPA"]
+    },
+    {
+      "question": "How do I change my major?",
+      "answer": "To change your major, schedule a meeting with an academic advisor in your current department and the department you wish to join. Complete the 'Change of Major' form and submit it to the Registrar's Office with required signatures.",
+      "category": "academic",
+      "keywords": ["change major", "switch", "department"]
+    },
+    {
+      "question": "What dining options are available on campus?",
+      "answer": "Campus dining includes the Main Cafeteria (all-you-can-eat), Food Court with various vendors, Coffee Shop in the library, and vending machines throughout campus. Meal plans are available for purchase each semester.",
+      "category": "facilities",
+      "keywords": ["dining", "food", "cafeteria", "meal plan"]
+    },
+    {
+      "question": "How do I access WiFi on campus?",
+      "answer": "Connect to the 'CampusWiFi' network using your student credentials. For guest access, use 'CampusGuest' network. If you experience connection issues, contact IT Support at ext. 4357 or visit the Tech Help Desk in the Library.",
+      "category": "technology",
+      "keywords": ["WiFi", "internet", "network", "connection"]
+    },
+    {
+      "question": "Where is the health center located?",
+      "answer": "The Campus Health Center is located in the Wellness Building, first floor. Services include basic medical care, counseling, and health education. Hours are Monday-Friday 8:00 AM - 5:00 PM. Call ext. 4911 for appointments.",
+      "category": "services",
+      "keywords": ["health center", "medical", "wellness", "doctor"]
+    },
+    {
+      "question": "How do I park on campus?",
+      "answer": "Students must purchase a parking permit through the online portal or at the Campus Safety Office. Permits are required in all lots except visitor parking. Violations result in fines starting at $25.",
+      "category": "transportation",
+      "keywords": ["parking", "permit", "car", "vehicle"]
+    },
+    {
+      "question": "What career services are available?",
+      "answer": "Career Services offers resume reviews, interview preparation, job search assistance, career counseling, and hosts job fairs each semester. Located in Student Services Building, Room 200. Schedule appointments online or call ext. 4200.",
+      "category": "services",
+      "keywords": ["career services", "jobs", "resume", "interview"]
+    },
+    {
+      "question": "How do I request transcripts?",
+      "answer": "Official transcripts can be requested through the Registrar's Office online portal or in person. There's a $5 fee per transcript. Processing takes 3-5 business days for standard requests, or 24 hours for rush orders (additional $10 fee).",
+      "category": "academic",
+      "keywords": ["transcripts", "grades", "official", "records"]
+    },
+    {
+      "question": "What tutoring services are available?",
+      "answer": "Free tutoring is available at the Academic Success Center for math, science, and writing. Peer tutoring sessions are held Monday-Thursday 6:00-9:00 PM. Schedule appointments online or drop in during designated hours.",
+      "category": "academic",
+      "keywords": ["tutoring", "help", "academic support", "study"]
+    }
+  ]
+}
