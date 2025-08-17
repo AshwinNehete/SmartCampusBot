@@ -51,7 +51,7 @@ A conversational AI chatbot designed to provide instant answers to university st
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd smart_campus_bot
+   cd SmartCampusBot
    ```
 
 2. **Create virtual environment**
@@ -67,8 +67,7 @@ A conversational AI chatbot designed to provide instant answers to university st
 
 4. **Set up environment variables**
    ```bash
-   cp .env.example .env
-   # Edit .env with your preferred settings
+   # Edit .env with your preferred settings or as mentioned in the Environment Variables section below
    ```
 
 5. **Initialize the knowledge base**
@@ -154,6 +153,8 @@ The bot comes with a comprehensive FAQ dataset covering:
 - **Student Services** (health center, career services, ID cards)
 - **Technology** (WiFi, IT support, online systems)
 - **Transportation** (parking, shuttle services)
+
+Moreover, it includes [Kaggle University Chatbot dataset](https://www.kaggle.com/datasets/niraliivaghani/chatbot-dataset) containing list of intents with tags, pattern, responses and context set. The file include 38 intents or called tags.This dataset can be used for training and evaluating chatbot models.
 
 ### Adding Custom FAQ Data
 

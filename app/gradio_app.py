@@ -114,15 +114,54 @@ class SmartCampusBotApp:
         """Create and configure Gradio interface"""
 
         # Custom CSS for better styling
+        # css = """
+        # .gradio-container {
+        #     max-width: 1200px !important;
+        # }
+        # .chat-container {
+        #     height: 500px !important;
+        # }
+        # .message-box {
+        #     min-height: 100px !important;
+        # }
+        # """
+
         css = """
-        .gradio-container {
-            max-width: 1200px !important;
+        /* Make sizing predictable */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        :root {
+        --page-max: 1280px;      /* preferred max width on desktops */
+        --page-pad: 1rem;        /* horizontal padding */
         }
+
+        /* Center the app and let it breathe, but still fill most of the viewport */
+        .gradio-container {
+        width: 100%;
+        max-width: min(var(--page-max), 96vw) !important;
+        margin-inline: auto;
+        padding-inline: var(--page-pad);
+        }
+
+        /* Chat area scales with viewport height, with sensible bounds */
         .chat-container {
-            height: 500px !important;
+        height: clamp(360px, 70vh, 820px) !important;
+        overflow-y: auto;
+        overscroll-behavior: contain;
         }
         .message-box {
-            min-height: 100px !important;
+        min-height: clamp(80px, 12vh, 180px) !important;
+        }
+
+        /* Extra-wide screens: allow a bit more width */
+        @media (min-width: 1536px) {
+        :root { --page-max: 1400px; }
+        }
+
+        /* Small screens: reduce padding and height a touch */
+        @media (max-width: 640px) {
+        :root { --page-pad: 0.75rem; }
+        .chat-container { height: clamp(300px, 60vh, 700px) !important; }
         }
         """
 
