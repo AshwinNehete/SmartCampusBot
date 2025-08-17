@@ -216,18 +216,36 @@ class SmartCampusBotApp:
                     """)
 
             # Event handlers
-            def submit_and_clear(message, history):
-                """Submit message and clear input"""
-                _, new_history = self.process_message(message, history)
-                return "", new_history
+            def add_user_message(message, history):
+                """Immediately add user message with placeholder response"""
+                if not message.strip():
+                    return "", history
+                history = history + [[message, "..."]]
+                return "", history
+ 
+            def update_bot_response(history):
+                """Replace last bot response placeholder with actual response"""
+                user_message = history[-1][0]
+                try:
+                    result = self.rag_pipeline.query(user_message)
+                    response = result["response"]
+                except Exception as e:
+                    logging.error(f"Error processing message: {e}")
+                    response = "I apologize, but I'm experiencing technical difficulties. Please try again later."
+                history[-1][1] = response
+                return history
 
             # Handle message submission
             submit_btn.click(
-                fn=submit_and_clear, inputs=[msg, chatbot], outputs=[msg, chatbot]
+                fn=add_user_message, inputs=[msg, chatbot], outputs=[msg, chatbot]
+            ).then(
+                fn=update_bot_response, inputs=[chatbot], outputs=chatbot
             )
 
             msg.submit(
-                fn=submit_and_clear, inputs=[msg, chatbot], outputs=[msg, chatbot]
+                fn=add_user_message, inputs=[msg, chatbot], outputs=[msg, chatbot]
+            ).then(
+                fn=update_bot_response, inputs=[chatbot], outputs=chatbot
             )
 
             # Handle clear chat
