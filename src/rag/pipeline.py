@@ -93,6 +93,60 @@ class RAGPipeline:
 
         logging.info(f"Knowledge base built successfully with {len(documents)} entries")
 
+    def build_knowledge_base_from_files(self, faq_path: str, intents_path: str | None = None):
+        logging.info("Building knowledge base from FAQ%s",
+                    " + intents" if intents_path else "")
+
+        documents: List[Dict] = []
+        texts_to_embed: List[str] = []
+
+        # ---- Load FAQ ----
+        with open(faq_path, "r", encoding="utf-8") as f:
+            faq_data = json.load(f)
+        faqs = faq_data.get("faqs", [])
+        if not faqs:
+            raise ValueError("No FAQ data found in the file")
+        for faq in faqs:
+            text = f"{faq['question']} {faq['answer']}"
+            texts_to_embed.append(text)
+            documents.append({
+                "type": "faq",
+                "question": faq.get("question"),
+                "answer": faq.get("answer"),
+                "category": faq.get("category"),
+                "keywords": faq.get("keywords", []),
+                "_raw": faq,
+            })
+
+        # ---- Load Intents (optional) ----
+        if intents_path:
+            with open(intents_path, "r", encoding="utf-8") as f:
+                intents_data = json.load(f)
+            intents = intents_data.get("intents", [])
+            for it in intents:
+                tag = it.get("tag")
+                responses = it.get("responses", [])
+                # top_resp = responses[0] if responses else ""
+                for pattern in it.get("patterns", []):
+                    # You can choose different compositions; including tag helps retrieval cluster similar patterns
+                    text = f"{pattern} {tag}"
+                    # Optionally: text = f"{pattern} {tag} {top_resp}"
+                    texts_to_embed.append(text)
+                    documents.append({
+                        "type": "intent",
+                        "tag": tag,
+                        "pattern": pattern,
+                        "responses": responses,
+                        "_raw": it,
+                    })
+
+        logging.info("Generating embeddings for %d documents", len(documents))
+        embeddings = self.embedding_model.encode(texts_to_embed)
+
+        self.vector_store.add_documents(embeddings, documents)
+        self.vector_store.save()
+        logging.info("Knowledge base built successfully with %d entries", len(documents))
+
     def retrieve_relevant_docs(
         self, query: str, k: int = None
     ) -> List[Tuple[Dict, float]]:

@@ -32,3 +32,4 @@ class Config:
     # Data paths
     DATA_DIR = "./data"
     FAQ_FILE = os.path.join(DATA_DIR, "university_faq.json")
+    INTENTS_FILE = os.path.join(DATA_DIR, "university_intents.json")

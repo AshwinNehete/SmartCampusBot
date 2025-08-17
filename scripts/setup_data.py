@@ -62,9 +62,10 @@ def check_ollama_connection(config):
         raise
 
 
-def build_knowledge_base(config, faq_file=None):
+def build_knowledge_base(config, faq_file=None, intents_file=None):
     """Build the knowledge base from FAQ data"""
     faq_path = faq_file or config.FAQ_FILE
+    intents_path = intents_file or config.INTENTS_FILE
 
     if not os.path.exists(faq_path):
         logging.error(f"FAQ file not found: {faq_path}")
@@ -77,7 +78,7 @@ def build_knowledge_base(config, faq_file=None):
 
         # Build knowledge base
         logging.info(f"Building knowledge base from {faq_path}")
-        pipeline.build_knowledge_base(faq_path)
+        pipeline.build_knowledge_base_from_files(faq_path, intents_path)
 
         # Test the pipeline
         logging.info("Testing the pipeline...")
