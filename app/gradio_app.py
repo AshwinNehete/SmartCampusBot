@@ -143,12 +143,17 @@ class SmartCampusBotApp:
         padding-inline: var(--page-pad);
         }
 
-        /* Chat area scales with viewport height, with sensible bounds */
+        /* Remove scroll/height from chat-container to avoid double scrollbars */
         .chat-container {
+        /* padding or max-width if needed */
+        }
+
+        /* Set height and overflow only on the chatbot itself */
+        .gradio-chatbot {
         height: clamp(360px, 70vh, 820px) !important;
         overflow-y: auto;
-        overscroll-behavior: contain;
         }
+
         .message-box {
         min-height: clamp(80px, 12vh, 180px) !important;
         }
@@ -161,7 +166,7 @@ class SmartCampusBotApp:
         /* Small screens: reduce padding and height a touch */
         @media (max-width: 640px) {
         :root { --page-pad: 0.75rem; }
-        .chat-container { height: clamp(300px, 60vh, 700px) !important; }
+        .gradio-chatbot { height: clamp(300px, 60vh, 700px) !important; }
         }
         """
 
