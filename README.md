@@ -301,7 +301,35 @@ health = pipeline.health_check()
 
 ## 🧪 Testing
 
-### Test the Setup
+### Unit Tests
+
+The project uses `pytest` for unit testing. The tests are located in the `tests/` directory and mirror the structure of the `src/` directory.
+
+#### Running Tests
+
+1. Ensure your virtual environment is activated:
+   ```bash
+   source venv/bin/activate
+   ```
+
+2. Install test dependencies (if not already installed):
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run the test suite:
+   ```bash
+   python -m pytest tests/
+   ```
+
+#### Adding New Tests
+
+1. Create a new test file in the appropriate subdirectory of `tests/` (e.g., `tests/new_module/test_feature.py`).
+2. Write your tests using `pytest` conventions (functions starting with `test_`).
+3. Use fixtures from `tests/conftest.py` if needed.
+4. Run the tests to verify.
+
+### Test the Setup (Manual)
 
 ```bash
 # Test with setup script
